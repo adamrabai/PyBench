@@ -1006,7 +1006,7 @@ function initChallengeDetailPage() {
     return;
   }
 
-  document.title = `${challenge.title} — Python GCSE Challenge Lab`;
+  document.title = `${challenge.title} — PyBench`;
   ProgressStore.markStarted(challenge.id);
 
   const level = getLevelInfo(challenge.level);

@@ -163,8 +163,8 @@ function renderHeader(activePage) {
 
   mount.innerHTML = `
     <a class="brand" href="index.html" style="text-decoration:none;">
-      <span class="brand-mark">&gt;_</span> Python GCSE
-      <span class="brand-sub">Challenge Lab</span>
+      <span class="brand-mark">&gt;_</span> PyBench
+      <span class="brand-sub">Python GCSE Challenges</span>
     </a>
     <nav class="main-nav">${navHtml}</nav>
     <div class="header-actions">

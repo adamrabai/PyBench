@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python GCSE Challenge Lab</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="home">
+<header id="site-header" class="site-header"></header>
+
+<main class="page">
+  <section class="hero">
+    <div>
+      <h1>Learn Python by solving real problems.</h1>
+      <p class="lede">50 GCSE Computer Science programming challenges, from your very first <code>print()</code> to full projects that combine everything you've learned. Write code, run it, test it, and track what you've covered.</p>
+      <div class="hero-actions">
+        <a href="challenges.html" class="btn btn-primary">Start Coding</a>
+        <a href="topics.html" class="btn">Browse by Topic</a>
+      </div>
+    </div>
+    <div class="hero-console">
+      <div class="console-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <pre><span class="out-prompt">&gt;&gt;&gt; </span>guess = int(input("Guess a number (1-100): "))
+50
+Too low
+<span class="out-prompt">&gt;&gt;&gt; </span>guess = int(input("Guess a number (1-100): "))
+75
+<span class="out-good">Correct! You took 2 guesses.</span></pre>
+    </div>
+  </section>
+
+  <section id="home-stats" class="home-stats"></section>
+
+  <section>
+    <h2>Eight levels, fifty challenges</h2>
+    <p class="page-lede">Difficulty rises gradually — each level builds directly on ideas from the one before it.</p>
+    <div id="level-strip" class="level-strip"></div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/challenges.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const total = CHALLENGES.length;
+    const data = ProgressStore.all();
+    const completedCount = Object.keys(data.completed).length;
+    const percent = total ? Math.round((completedCount / total) * 100) : 0;
+    const currentLevel = completedCount
+      ? Math.max(...Object.keys(data.completed).map(id => getChallengeById(Number(id)).level))
+      : 0;
+
+    document.getElementById("home-stats").innerHTML = `
+      <div class="stat-block"><div class="num">${total}</div><div class="lbl">Total challenges</div></div>
+      <div class="stat-block"><div class="num">${completedCount}</div><div class="lbl">Completed</div></div>
+      <div class="stat-block"><div class="num">${percent}%</div><div class="lbl">Overall progress</div></div>
+      <div class="stat-block"><div class="num">${currentLevel || "—"}</div><div class="lbl">Current level</div></div>
+    `;
+
+    document.getElementById("level-strip").innerHTML = LEVELS.map(l => {
+      const count = CHALLENGES.filter(c => c.level === l.level).length;
+      return `<a class="level-row" href="challenges.html?level=${l.level}" style="text-decoration:none;color:inherit;">
+        <span class="level-tag">LEVEL ${l.level}</span>
+        <span class="level-name">${l.name} — <span class="text-faint">${l.tagline}</span></span>
+        <span class="level-count">${count} challenges</span>
+      </a>`;
+    }).join("");
+  });
+</script>
+</body>
+</html>

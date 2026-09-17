@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyBench — Maintenance</title>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #151b23;
+      --border: #262f3a;
+      --text: #dde3ea;
+      --text-dim: #8b96a5;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.12);
+      --mono: "SFMono-Regular", "JetBrains Mono", Consolas,
+              "Liberation Mono", Menlo, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      text-align: center;
+    }
+
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .terminal-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      background: #10151c;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #34404d;
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      color: #5b6675;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .terminal-body {
+      padding: 34px;
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .command {
+      color: var(--text);
+    }
+
+    .status {
+      margin-top: 22px;
+      padding: 18px 20px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(79, 209, 197, 0.25);
+      border-radius: 6px;
+    }
+
+    .status-title {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .status-text {
+      color: var(--text-dim);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 17px;
+      background: var(--accent);
+      vertical-align: -3px;
+      margin-left: 4px;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .brand {
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .brand strong {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .terminal-body {
+        padding: 24px;
+      }
+
+      .terminal {
+        border-radius: 6px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+```
+<div class="terminal">
+
+  <div class="terminal-bar">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="terminal-title">pybench — maintenance</span>
+  </div>
+
+  <div class="terminal-body">
+
+    <div>
+      <span class="prompt">$</span>
+      <span class="command"> pybench status</span>
+    </div>
+
+    <div class="status">
+      <div class="status-title">
+        PyBench is currently undergoing maintenance.
+      </div>
+
+      <div class="status-text">
+        We're making some improvements behind the scenes.
+        The coding challenges will be back shortly.
+        Thanks for your patience!
+      </div>
+    </div>
+
+    <br>
+
+    <div>
+      <span class="prompt">$</span>
+      <span class="command"> please_wait</span>
+      <span class="cursor"></span>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="brand">
+  <strong>PyBench</strong> · Python Coding Challenge Lab
+</div>
+```
+
+  </main>
+
+</body>
+</html>
